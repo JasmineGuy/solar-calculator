@@ -56,25 +56,24 @@ function calcPanel(){
 
 function calculateSolar(){
     let dailyUseKw = addMonths('mpc');
-    console.log(dailyUseKw);
+    // console.log(dailyUseKw);
 
     let sunHoursPerDay = sunHours();
-    console.log(sunHoursPerDay);
+    // console.log(sunHoursPerDay);
 
     let minKwNeeds = dailyUseKw/sunHoursPerDay;
-    console.log(minKwNeeds);
+    // console.log(minKwNeeds);
 
     let realKWNeeds = minKwNeeds * 1.25;
-    console.log(realKWNeeds);
+    // console.log(realKWNeeds);
 
     let realWattNeeds = realKWNeeds * 1000;
-    console.log(realWattNeeds)
-;
+    console.log(realWattNeeds);
     let panelInfo = calcPanel();
     let panelOutput = panelInfo[0];
     let panelName = panelInfo[1];
-    console.log(panelOutput);
-    console.log(panelName);
+    // console.log(panelOutput);
+    // console.log(panelName);
 
     let panelsNeeded = Math.ceil(realWattNeeds / panelOutput);
     console.log(panelsNeeded);
@@ -82,7 +81,7 @@ function calculateSolar(){
 
 
 let feedback = "";
-feedback += `<p>Based on your average daily use of ${Math.round(dailyUseKw)}KWh, you will need ${panelsNeeded} ${panelName} panels.`
+feedback += `<p>Based on your daily KW usage, you will need ${panelsNeeded} ${panelName} panels.`
 
 
   document.getElementById("feedback").innerHTML = feedback;
